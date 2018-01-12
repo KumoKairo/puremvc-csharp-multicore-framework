@@ -38,7 +38,8 @@ namespace PureMVC.Patterns.Facade
         /// <exception cref="System.Exception">Thrown if instance for this Multiton key has already been constructed</exception>
         public Facade(string key)
         {
-            if (instanceMap.TryGetValue(key, out Lazy<IFacade> facade) && multitonKey != null) throw new Exception(MULTITON_MSG);
+            Lazy<IFacade> facade;
+            if (instanceMap.TryGetValue(key, out facade) && multitonKey != null) throw new Exception(MULTITON_MSG);
             InitializeNotifier(key);
             instanceMap.TryAdd(key, new Lazy<IFacade>(() => this));
             InitializeFacade();
@@ -317,7 +318,7 @@ namespace PureMVC.Patterns.Facade
         /// <returns>whether a Core is registered with the given <c>key</c>.</returns>
         public static bool HasCore(string key)
         {
-            return instanceMap.TryGetValue(key, out Lazy<IFacade> _);
+            return instanceMap.ContainsKey(key);
         }
 
         /// <summary>
@@ -332,11 +333,15 @@ namespace PureMVC.Patterns.Facade
         /// <param name="key">multitonKey of the Core to remove</param>
         public static void RemoveCore(string key)
         {
-            if (instanceMap.TryGetValue(key, out Lazy<IFacade> _) == false) return;
+            if (!instanceMap.ContainsKey(key))
+            {
+                return;
+            }
+
             Model.RemoveModel(key);
             View.RemoveView(key);
             Controller.RemoveController(key);
-            instanceMap.TryRemove(key, out Lazy<IFacade> _);
+            instanceMap.TryRemove(key);
         }
 
         /// <summary>References to Controller</summary>

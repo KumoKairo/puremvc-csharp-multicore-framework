@@ -46,7 +46,7 @@ namespace PureMVC.Core
     /// <seealso cref="PureMVC.Patterns.Observer.Notification"/>
     /// <seealso cref="PureMVC.Patterns.Command.SimpleCommand"/>
     /// <seealso cref="PureMVC.Patterns.Command.MacroCommand"/>
-    public class Controller: IController
+    public class Controller : IController
     {
         /// <summary>
         /// Constructs and initializes a new controller
@@ -111,7 +111,8 @@ namespace PureMVC.Core
         /// <param name="notification">note an <c>INotification</c></param>
         public virtual void ExecuteCommand(INotification notification)
         {
-            if (commandMap.TryGetValue(notification.Name, out Func<ICommand> commandClassRef))
+            Func<ICommand> commandClassRef;
+            if (commandMap.TryGetValue(notification.Name, out commandClassRef))
             {
                 ICommand commandInstance = commandClassRef();
                 commandInstance.InitializeNotifier(multitonKey);
@@ -138,7 +139,7 @@ namespace PureMVC.Core
         /// <param name="commandClassRef">the <c>Func Delegate</c> of the <c>ICommand</c></param>
         public virtual void RegisterCommand(string notificationName, Func<ICommand> commandClassRef)
         {
-            if (commandMap.TryGetValue(notificationName, out Func<ICommand> _) == false)
+            if (!commandMap.ContainsKey(notificationName))
             {
                 view.RegisterObserver(notificationName, new Observer(ExecuteCommand, this));
             }
@@ -188,7 +189,7 @@ namespace PureMVC.Core
 
         /// <summary>Mapping of Notification names to Command Class references</summary>
         protected Dictionary<string, Func<ICommand>> commandMap;
-        
+
         /// <summary>The Multiton Controller instanceMap.</summary>
         protected static Dictionary<string, Lazy<IController>> instanceMap = new Dictionary<string, Lazy<IController>>();
 

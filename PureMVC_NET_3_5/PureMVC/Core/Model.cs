@@ -99,7 +99,8 @@ namespace PureMVC.Core
         /// <returns>the <c>IProxy</c> instance previously registered with the given <c>proxyName</c>.</returns>
         public virtual IProxy RetrieveProxy(string proxyName)
         {
-            return proxyMap.TryGetValue(proxyName, out IProxy proxy) ? proxy : null;
+            IProxy proxy;
+            return proxyMap.TryGetValue(proxyName, out proxy) ? proxy : null;
         }
 
         /// <summary>
@@ -109,7 +110,8 @@ namespace PureMVC.Core
         /// <returns>the <c>IProxy</c> that was removed from the <c>Model</c></returns>
         public virtual IProxy RemoveProxy(string proxyName)
         {
-            if (proxyMap.TryRemove(proxyName, out IProxy proxy))
+            IProxy proxy;
+            if (proxyMap.TryRemove(proxyName, out proxy))
             {
                 proxy.OnRemove();
             }
@@ -132,7 +134,7 @@ namespace PureMVC.Core
         /// <param name="key">multitonKey of IModel instance to remove</param>
         public static void RemoveModel(string key)
         {
-            instanceMap.TryRemove(key, out Lazy<IModel> _);
+            instanceMap.TryRemove(key);
         }
 
         /// <summary>The Multiton Key for this Core</summary>

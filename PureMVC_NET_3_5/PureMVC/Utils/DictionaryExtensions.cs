@@ -61,5 +61,18 @@ namespace PureMVC.Utils
                 return false;
             }
         }
+
+        public static bool TryRemove<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key)
+        {
+            if (dictionary.ContainsKey(key))
+            {
+                dictionary.Remove(key);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
