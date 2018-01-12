@@ -5,7 +5,7 @@
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using PureMVC.Interfaces;
 
 namespace PureMVC.Patterns.Facade
@@ -15,13 +15,13 @@ namespace PureMVC.Patterns.Facade
     /// </summary>
     /// <seealso cref="FacadeTestVO"/>
     /// <seealso cref="FacadeTestCommand"/>
-    [TestClass]
+    [TestFixture]
     public class FacadeTest
     {
         /// <summary>
         /// Tests the Facade Multiton Factory Method 
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestGetInstance()
         {
             // Test Factory Method
@@ -48,7 +48,7 @@ namespace PureMVC.Patterns.Facade
         ///         the Notification, which will be modified by the Command.
         ///     </para>
         /// </remarks>
-        [TestMethod]
+        [Test]
         public void TestRegisterCommandAndSendNotification()
         {
             // Create the Facade, register the FacadeTestCommand to 
@@ -82,7 +82,7 @@ namespace PureMVC.Patterns.Facade
         ///         the Notification, which will NOT be modified by the Command.
         ///     </para>
         /// </remarks>
-        [TestMethod]
+        [Test]
         public void TestRegisterAndRemoveCommandAndSendNotification()
         {
             // Create the Facade, register the FacadeTestCommand to 
@@ -112,7 +112,7 @@ namespace PureMVC.Patterns.Facade
         ///         methods do not throw exception when called.
         ///     </para>
         /// </remarks>
-        [TestMethod]
+        [Test]
         public void TestRegisterAndRetrieveProxy()
         {
             // register a proxy and retrieve it.
@@ -137,7 +137,7 @@ namespace PureMVC.Patterns.Facade
         /// <summary>
         /// Tests the removing Proxies via the Facade.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestRegisterAndRemoveProxy()
         {
             // register a proxy, remove it, then try to retrieve it
@@ -161,7 +161,7 @@ namespace PureMVC.Patterns.Facade
         /// <summary>
         /// Tests registering, retrieving and removing Mediators via the Facade.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestRegisterRetrieveAndRemoveMediator()
         {
             // register a mediator, remove it, then try to retrieve it
@@ -181,7 +181,7 @@ namespace PureMVC.Patterns.Facade
         /// <summary>
         /// Tests the hasProxy Method
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestHasProxy()
         {
             // register a Proxy
@@ -196,7 +196,7 @@ namespace PureMVC.Patterns.Facade
         /// <summary>
         /// Tests the hasMediator Method
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestHasMediator()
         {
             // register a Mediator
@@ -217,7 +217,7 @@ namespace PureMVC.Patterns.Facade
         /// <summary>
         /// Test hasCommand method.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestHasCommand()
         {
             // register the ControllerTestCommand to handle 'hasCommandTest' notes
@@ -237,7 +237,7 @@ namespace PureMVC.Patterns.Facade
         /// <summary>
         /// Tests the hasCore and removeCore methods
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestHasCoreAndRemoveCore()
         {
             // assert that the Facade.hasCore method returns false first

@@ -55,6 +55,21 @@
     <Compile Include="Core\ViewTestMediator5.cs" />
     <Compile Include="Core\ViewTestMediator6.cs" />
     <Compile Include="Core\ViewTestNote.cs" />
+    <Compile Include="Patterns\Command\MacroCommandTest.cs" />
+    <Compile Include="Patterns\Command\MacroCommandTestCommand.cs" />
+    <Compile Include="Patterns\Command\MacroCommandTestSub1Command.cs" />
+    <Compile Include="Patterns\Command\MacroCommandTestSub2Command.cs" />
+    <Compile Include="Patterns\Command\MacroCommandTestVO.cs" />
+    <Compile Include="Patterns\Command\SimpleCommandTest.cs" />
+    <Compile Include="Patterns\Command\SimpleCommandTestCommand.cs" />
+    <Compile Include="Patterns\Command\SimpleCommandTestVO.cs" />
+    <Compile Include="Patterns\Facade\FacadeTest.cs" />
+    <Compile Include="Patterns\Facade\FacadeTestCommand.cs" />
+    <Compile Include="Patterns\Facade\FacadeTestVO.cs" />
+    <Compile Include="Patterns\Mediator\MediatorTest.cs" />
+    <Compile Include="Patterns\Observer\NotificationTest.cs" />
+    <Compile Include="Patterns\Observer\ObserverTest.cs" />
+    <Compile Include="Patterns\Proxy\ProxyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

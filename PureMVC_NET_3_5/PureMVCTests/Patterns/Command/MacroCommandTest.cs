@@ -5,7 +5,7 @@
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using PureMVC.Interfaces;
 using PureMVC.Patterns.Observer;
 
@@ -16,7 +16,7 @@ namespace PureMVC.Patterns.Command
     /// </summary>
     /// <seealso cref="MacroCommandTestVO"/>
     /// <seealso cref="MacroCommandTestCommand"/>
-    [TestClass]
+    [TestFixture]
     public class MacroCommandTest
     {
         /// <summary>
@@ -52,7 +52,7 @@ namespace PureMVC.Patterns.Command
         ///     body.
         /// </para>
         /// </remarks>
-       [TestMethod]
+       [Test]
         public void TestMacroCommandExecute()
         {
             // Create the VO

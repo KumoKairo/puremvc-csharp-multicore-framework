@@ -5,7 +5,7 @@
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using PureMVC.Interfaces;
 
 namespace PureMVC.Patterns.Proxy
@@ -15,13 +15,13 @@ namespace PureMVC.Patterns.Proxy
     /// </summary>
     /// <seealso cref="IProxy"/>
     /// <seealso cref="Proxy"/>
-    [TestClass]
+    [TestFixture]
     public class ProxyTest
     {
         /// <summary>
         /// Tests getting the name using Proxy class accessor method. Setting can only be done in constructor.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestNameAccessor()
         {
             // Create a new Proxy and use accessors to set the proxy name 
@@ -34,7 +34,7 @@ namespace PureMVC.Patterns.Proxy
         /// <summary>
         /// Tests setting and getting the data using Proxy class accessor methods.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestDataAccessor()
         {
             // Create a new Proxy and use accessors to set the data
@@ -52,7 +52,7 @@ namespace PureMVC.Patterns.Proxy
         /// <summary>
         /// Tests setting the name and body using the Notification class Constructor.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestConstructor()
         {
             // Create a new Proxy using the Constructor to set the name and data

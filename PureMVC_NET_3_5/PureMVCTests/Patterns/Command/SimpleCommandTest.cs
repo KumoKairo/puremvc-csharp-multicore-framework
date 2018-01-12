@@ -5,7 +5,7 @@
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using PureMVC.Interfaces;
 using PureMVC.Patterns.Observer;
 
@@ -16,7 +16,7 @@ namespace PureMVC.Patterns.Command
     /// </summary>
     /// <seealso cref="SimpleCommandTestVO"/>
     /// <seealso cref="SimpleCommandTestCommand"/>
-    [TestClass]
+    [TestFixture]
     public class SimpleCommandTest
     {
         /// <summary>
@@ -35,7 +35,7 @@ namespace PureMVC.Patterns.Command
         ///         be modified by the SimpleCommand
         ///     </para>
         /// </remarks>
-        [TestMethod]
+        [Test]
         public void TestExecute()
         {
             // Create the VO

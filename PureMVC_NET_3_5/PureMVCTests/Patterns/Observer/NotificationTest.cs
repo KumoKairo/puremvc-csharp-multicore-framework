@@ -5,7 +5,7 @@
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using PureMVC.Interfaces;
 
 namespace PureMVC.Patterns.Observer
@@ -14,13 +14,13 @@ namespace PureMVC.Patterns.Observer
     /// Test the PureMVC Notification class.
     /// </summary>
     /// <seealso cref="Notification"/>
-    [TestClass]
+    [TestFixture]
     public class NotificationTest
     {
         /// <summary>
         /// Tests setting and getting the name using Notification class accessor methods.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestNameAccessors()
         {
             // // Create a new Notification and use accessors to set the note name 
@@ -33,7 +33,7 @@ namespace PureMVC.Patterns.Observer
         /// <summary>
         /// Tests setting and getting the body using Notification class accessor methods.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestBodyAccessors()
         {
             // Create a new Notification and use accessors to set the body
@@ -47,7 +47,7 @@ namespace PureMVC.Patterns.Observer
         /// <summary>
         /// Tests setting the name and body using the Notification class Constructor.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestConstructor()
         {
             // Create a new Notification using the Constructor to set the notification name and body
@@ -62,7 +62,7 @@ namespace PureMVC.Patterns.Observer
         /// <summary>
         /// Tests the toString method of the notification
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestToString()
         {
             // Create a new Notification and use accessors to set the notification name 

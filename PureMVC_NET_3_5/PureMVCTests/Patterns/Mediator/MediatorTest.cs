@@ -5,7 +5,7 @@
 //  Your reuse is governed by the Creative Commons Attribution 3.0 License
 //
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using PureMVC.Interfaces;
 
 namespace PureMVC.Patterns.Mediator
@@ -15,13 +15,13 @@ namespace PureMVC.Patterns.Mediator
     /// </summary>
     /// <seealso cref="IMediator"/>
     /// <seealso cref="Mediator"/>
-    [TestClass]
+    [TestFixture]
     public class MediatorTest
     {
         /// <summary>
         /// Tests getting the name using Mediator class accessor method. 
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestNameAccessor()
         {
             // Create a new Mediator and use accessors to set the medi ator name 
@@ -34,7 +34,7 @@ namespace PureMVC.Patterns.Mediator
         /// <summary>
         /// Tests getting the name using Mediator class accessor method. 
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestViewAccessor()
         {
             // Create a view object

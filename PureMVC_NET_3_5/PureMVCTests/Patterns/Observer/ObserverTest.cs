@@ -6,7 +6,7 @@
 //
 
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using PureMVC.Interfaces;
 
 namespace PureMVC.Patterns.Observer
@@ -26,13 +26,13 @@ namespace PureMVC.Patterns.Observer
     ///         method.
     ///     </para>
     /// </remarks>
-    [TestClass]
+    [TestFixture]
     public class ObserverTest
     {
         /// <summary>
         /// Tests observer class when initialized by accessor methods.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestObserverAccessor()
         {
             // Create observer with null args, then
@@ -57,7 +57,7 @@ namespace PureMVC.Patterns.Observer
         /// <summary>
         /// Tests observer class when initialized by constructor.
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestObserverConstructor()
         {
             // Create observer passing in notification method and context
@@ -79,7 +79,7 @@ namespace PureMVC.Patterns.Observer
         /// <summary>
         /// Tests the compareNotifyContext method of the Observer class
         /// </summary>
-        [TestMethod]
+        [Test]
         public void TestCompareNotifyContext()
         {
             // Create observer passing in notification method and context
@@ -90,7 +90,6 @@ namespace PureMVC.Patterns.Observer
             // test assertions  			
             Assert.IsTrue(observer.CompareNotifyContext(negTestObj) == false, "Expecting observer.compareNotifyContext(negTestObj) == false");
             Assert.IsTrue(observer.CompareNotifyContext(this), "Expecting observer.compareNotifyContext(this) == true");
-            Assert.IsTrue(observer.CompareNotifyContext(new WeakReference<object>(null)) == false, "Expecting garbage collected value (null) == false");
         }
 
         /// <summary>
